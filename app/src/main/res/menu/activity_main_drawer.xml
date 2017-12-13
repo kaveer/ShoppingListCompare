@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="all">
+        <item
+            android:id="@+id/nav_camersa"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Import"/>
+        <item
+            android:id="@+id/nav_gallexry"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Gallery"/>
+        <item
+            android:id="@+id/nav_slidsxeshow"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Slideshow"/>
+        <item
+            android:id="@+id/nav_maxsnage"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Tools"/>
+    </group>
+
+
+    <group
+        android:id="@+id/menu_bottom"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/drawer_item_sedfettings"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Setting" >
+        </item>
+        <item
+            android:id="@+id/drawer_item_sedfttings"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Help" >
+        </item>
+        <item
+            android:id="@+id/drawer_item_dfdsettings"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Information" >
+        </item>
+    </group>
+
+</menu>
