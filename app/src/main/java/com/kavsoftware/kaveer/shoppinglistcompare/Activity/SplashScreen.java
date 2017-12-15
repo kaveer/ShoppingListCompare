@@ -1,4 +1,4 @@
-package com.kavsoftware.kaveer.shoppinglistcompare;
+package com.kavsoftware.kaveer.shoppinglistcompare.Activity;
 
 import android.content.Intent;
 import android.os.Handler;
@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
+
+import com.kavsoftware.kaveer.shoppinglistcompare.R;
 
 public class SplashScreen extends AppCompatActivity {
     private final int SPLASH_DISPLAY_LENGTH = 3000;

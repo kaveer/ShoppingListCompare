@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_deep_space"
-    tools:context="com.kavsoftware.kaveer.shoppinglistcompare.SplashScreen">
+    tools:context="com.kavsoftware.kaveer.shoppinglistcompare.Activity.SplashScreen">
 
     <ImageView
         android:id="@+id/imageView2"
