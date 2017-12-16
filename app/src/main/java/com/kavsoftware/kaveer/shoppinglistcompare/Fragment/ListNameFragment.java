@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.kavsoftware.kaveer.shoppinglistcompare.Common.Common;
+import com.kavsoftware.kaveer.shoppinglistcompare.Helper.Common;
 import com.kavsoftware.kaveer.shoppinglistcompare.R;
 
 

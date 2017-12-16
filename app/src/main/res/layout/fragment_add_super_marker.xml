@@ -1,93 +1,67 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
                                              xmlns:app="http://schemas.android.com/apk/res-auto"
                                              xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             tools:context="com.kavsoftware.kaveer.shoppinglistcompare.Fragment.AddSuperMarkerFragment">
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent"
+                                             tools:context="com.kavsoftware.kaveer.shoppinglistcompare.Fragment.AddSuperMarkerFragment"
+                                             tools:layout_editor_absoluteY="81dp">
 
     <!-- TODO: Update blank fragment layout -->
 
-    <AutoCompleteTextView
-        android:id="@+id/autoCompleteTextView"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="21dp"
         android:layout_marginTop="24dp"
-        android:text="AutoCompleteTextView"
+        android:text="Enter Supermarket here: "
         android:textColor="@color/colorAccent"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
-    <ListView
-        android:layout_width="369dp"
-        android:layout_height="269dp"
-        android:layout_marginTop="84dp"
-        app:layout_constraintHorizontal_bias="0.533"
+    <AutoCompleteTextView
+        android:id="@+id/autoSupermarket"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="56dp"
+        android:textColor="@color/colorAccent"
+        android:tooltipText="Send an email"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView2"/>
 
-    <LinearLayout
+    <Button
+        android:id="@+id/BtnAddStore"
+        style="?android:attr/buttonBarButtonStyle"
         android:layout_width="0dp"
-        android:layout_height="74dp"
+        android:layout_height="58dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:divider="?android:attr/dividerHorizontal"
-        android:orientation="vertical"
-        android:paddingTop="16dip"
-        android:showDividers="beginning"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:text="Add"
+        android:textColor="@color/colorAccent"
+        app:layout_constraintBottom_toTopOf="@+id/listViewStore"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/autoSupermarket"/>
+
+    <ListView
+        android:id="@+id/listViewStore"
+        android:layout_width="0dp"
+        android:layout_height="259dp"
+        android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <LinearLayout
-            style="?android:attr/buttonBarStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:measureWithLargestChild="true"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:id="@+id/leftSpacer"
-                android:layout_width="0dip"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.25"
-                android:orientation="horizontal"
-                android:visibility="gone"/>
-
-            <Button
-                android:id="@+id/addTitleCancelButton"
-                style="?android:attr/buttonBarButtonStyle"
-                android:layout_width="0dip"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:layout_weight="1"
-                android:maxLines="2"
-                android:text="@string/cancel"/>
-
-            <Button
-                android:id="@+id/addTitleOkButton"
-                style="?android:attr/buttonBarButtonStyle"
-                android:layout_width="0dip"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:layout_weight="1"
-                android:filterTouchesWhenObscured="true"
-                android:maxLines="2"
-                android:text="@string/next"/>
-
-            <LinearLayout
-                android:id="@+id/rightSpacer"
-                android:layout_width="0dip"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.25"
-                android:orientation="horizontal"
-                android:visibility="gone"/>
-
-        </LinearLayout>
-    </LinearLayout>
+        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
 </android.support.constraint.ConstraintLayout>

@@ -1,4 +1,4 @@
-package com.kavsoftware.kaveer.shoppinglistcompare.Common;
+package com.kavsoftware.kaveer.shoppinglistcompare.Helper;
 
 import android.content.Context;
 import android.net.ConnectivityManager;

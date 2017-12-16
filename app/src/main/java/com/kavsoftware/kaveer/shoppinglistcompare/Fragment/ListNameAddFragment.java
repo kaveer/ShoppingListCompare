@@ -10,7 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.kavsoftware.kaveer.shoppinglistcompare.Common.Common;
+import com.kavsoftware.kaveer.shoppinglistcompare.Helper.Common;
+import com.kavsoftware.kaveer.shoppinglistcompare.Model.ShoppingListViewModel;
 import com.kavsoftware.kaveer.shoppinglistcompare.R;
 
 /**
@@ -22,6 +23,7 @@ public class ListNameAddFragment extends Fragment {
     Button next, cancel;
 
     Common common = new Common();
+    ShoppingListViewModel listDetails = new ShoppingListViewModel();
 
     public ListNameAddFragment() {
         // Required empty public constructor
@@ -45,8 +47,13 @@ public class ListNameAddFragment extends Fragment {
                 @Override
                 public void onClick(View view) {
                     if(IsValid()){
+                        InitializeViewModel();
+
+                        Bundle bundle = new Bundle();
+                        bundle.putSerializable(String.valueOf(R.string.bundleGetTitle), listDetails);
+
                         AddSuperMarkerFragment fragment = new AddSuperMarkerFragment();
-                        fragment.setArguments(common.SetBundle(String.valueOf(R.string.bundleGetTitle), title.getText().toString()));
+                        fragment.setArguments(bundle);
                         android.support.v4.app.FragmentTransaction fmTransaction = getFragmentManager().beginTransaction();
                         fmTransaction.replace(R.id.MainFrameLayout, fragment);
                         fmTransaction.commit();
@@ -70,6 +77,11 @@ public class ListNameAddFragment extends Fragment {
         }
 
         return view;
+    }
+
+    private void InitializeViewModel() {
+        listDetails.setListName(title.getText().toString());
+        listDetails.setDate(date.getText().toString());
     }
 
     private boolean IsValid() {
