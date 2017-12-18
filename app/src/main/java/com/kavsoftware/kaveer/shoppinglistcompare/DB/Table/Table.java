@@ -15,4 +15,11 @@ public class Table {
         public static String StoreName = "StoreName";
     }
 
+    public  static abstract class MasterGrocery implements BaseColumns {
+        public static final String tableName = "MasterGrocery";
+
+        public static String GroceryId = "GroceryId";
+        public static String GroceryName = "GroceryName";
+    }
+
 }

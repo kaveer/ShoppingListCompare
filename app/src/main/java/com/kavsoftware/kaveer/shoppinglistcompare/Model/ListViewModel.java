@@ -8,11 +8,38 @@ import java.util.ArrayList;
  */
 
 @SuppressWarnings("serial")
-public class ShoppingListViewModel implements Serializable {
-        int ListId;
-        String ListName;
-        String Date;
-        ArrayList<MasterSupermarketViewModel> stores;
+public class ListViewModel implements Serializable {
+    int ListId;
+    String ListName;
+    String Date;
+    String Guid;
+    ArrayList<MasterSupermarketViewModel> stores;
+    ArrayList<MasterGroceryViewModel> groceryList;
+    boolean IsViewOnly;
+
+    public boolean isViewOnly() {
+        return IsViewOnly;
+    }
+
+    public void setViewOnly(boolean viewOnly) {
+        IsViewOnly = viewOnly;
+    }
+
+    public ArrayList<MasterGroceryViewModel> getGroceryList() {
+        return groceryList;
+    }
+
+    public void setGroceryList(ArrayList<MasterGroceryViewModel> groceryList) {
+        this.groceryList = groceryList;
+    }
+
+    public String getGuid() {
+        return Guid;
+    }
+
+    public void setGuid(String guid) {
+        Guid = guid;
+    }
 
     public ArrayList<MasterSupermarketViewModel> getStores() {
         return stores;

@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.kavsoftware.kaveer.shoppinglistcompare.Helper.Common;
-import com.kavsoftware.kaveer.shoppinglistcompare.Model.ShoppingListViewModel;
+import com.kavsoftware.kaveer.shoppinglistcompare.Model.ListViewModel;
 import com.kavsoftware.kaveer.shoppinglistcompare.R;
 
 /**
@@ -23,7 +23,7 @@ public class ListNameAddFragment extends Fragment {
     Button next, cancel;
 
     Common common = new Common();
-    ShoppingListViewModel listDetails = new ShoppingListViewModel();
+    ListViewModel listDetails = new ListViewModel();
 
     public ListNameAddFragment() {
         // Required empty public constructor

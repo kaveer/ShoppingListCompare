@@ -23,6 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/title"
+            android:singleLine="true"
             android:textColor="@color/colorAccent"/>
     </android.support.design.widget.TextInputLayout>
 
@@ -37,10 +38,11 @@
 
         <android.support.design.widget.TextInputEditText
             android:id="@+id/textInputDate"
-            android:editable="false"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:editable="false"
             android:hint="@string/date"
+            android:singleLine="true"
             android:textColor="@color/colorAccent"/>
     </android.support.design.widget.TextInputLayout>
 

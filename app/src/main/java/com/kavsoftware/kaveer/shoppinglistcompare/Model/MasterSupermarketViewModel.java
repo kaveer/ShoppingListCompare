@@ -5,8 +5,8 @@ package com.kavsoftware.kaveer.shoppinglistcompare.Model;
  */
 
 public class MasterSupermarketViewModel {
-    public int StoreId;
-    public String StoreName;
+    private int StoreId;
+    private String StoreName;
 
     public int getStoreId() {
         return StoreId;

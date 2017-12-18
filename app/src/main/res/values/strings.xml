@@ -13,14 +13,21 @@
     <!--EditText-->
     <string name="title">Title</string>
     <string name="date">Date</string>
+    <string name="price">Price</string>
 
     <!--Button-->
     <string name="next">Next</string>
     <string name="cancel">Cancel</string>
+    <string name="save">Next</string>
+    <string name="previous">Previous</string>
+    <string name="add">Add</string>
+    <string name="preview">Preview</string>
 
     <!--Error-->
     <string name="NoTitleError">Enter title to continue</string>
 
     <!--bundle-->
     <string name="bundleGetTitle">BundleTitle</string>
+    <string name="bundleShopListViewModel">BundleShopList</string>
+    <string name="bundleListDetails">BundleListDetails</string>
 </resources>
