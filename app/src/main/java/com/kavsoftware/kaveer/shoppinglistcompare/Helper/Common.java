@@ -30,8 +30,14 @@ public class Common {
         }
     }
 
-    public void DisplayToastFromFragment(FragmentActivity activity, String message){
+    public void DisplayToastFromFragmentLong(FragmentActivity activity, String message){
         Toast messageBox = Toast.makeText(activity , message , Toast.LENGTH_LONG);
+        messageBox.show();
+    }
+
+
+    public void DisplayToastFromFragmentShort(FragmentActivity activity, String message){
+        Toast messageBox = Toast.makeText(activity , message , Toast.LENGTH_SHORT);
         messageBox.show();
     }
 

@@ -21,7 +21,7 @@ import android.widget.TextView;
 import com.kavsoftware.kaveer.shoppinglistcompare.DB.DbHandler.DBHandler;
 import com.kavsoftware.kaveer.shoppinglistcompare.Helper.Common;
 import com.kavsoftware.kaveer.shoppinglistcompare.Model.MasterSupermarketViewModel;
-import com.kavsoftware.kaveer.shoppinglistcompare.Model.ShoppingListViewModel;
+import com.kavsoftware.kaveer.shoppinglistcompare.Model.ListViewModel;
 import com.kavsoftware.kaveer.shoppinglistcompare.R;
 
 import java.util.ArrayList;
@@ -32,13 +32,13 @@ import java.util.ArrayList;
 public class AddSuperMarkerFragment extends Fragment {
     ArrayList<MasterSupermarketViewModel> masterSupermarkets = new ArrayList<>();
     ArrayList<String> supermarkets = new ArrayList<>();
-    ShoppingListViewModel listDetails = new ShoppingListViewModel();
+    ListViewModel listDetails = new ListViewModel();
     ArrayAdapter<String> adapter;
 
     Common common = new Common();
 
     AutoCompleteTextView autoSupermarket;
-    Button addStore;
+    Button addStore, cancel, save;
     ListView listViewStore;
 
     int tutorialCounter = 0;
@@ -57,16 +57,14 @@ public class AddSuperMarkerFragment extends Fragment {
         try{
 
             Bundle bundle = getArguments();
-            listDetails = (ShoppingListViewModel) bundle.getSerializable(String.valueOf(R.string.bundleGetTitle));
+            listDetails = (ListViewModel) bundle.getSerializable(String.valueOf(R.string.bundleGetTitle));
 
             if (listDetails.getListName() == ""){
                 ReturnToDefaultFragment();
-                common.DisplayToastFromFragment(getActivity(), "Error please try again");
+                common.DisplayToastFromFragmentLong(getActivity(), "Error please try again");
             }else {
                 InitializeControl(view);
 
-//                DBHandler db = new DBHandler(getContext());
-//                db.PostMasterSupermarket();
 
                 masterSupermarkets = GetMasterSuperMarketForAutoComplete();
                 SetValueForAutoComplete(masterSupermarkets, getActivity());
@@ -84,8 +82,39 @@ public class AddSuperMarkerFragment extends Fragment {
                                 autoSupermarket.setText("");
 
                             }else {
-                                common.DisplayToastFromFragment(getActivity(), "Supermarket already selected");
+                                common.DisplayToastFromFragmentLong(getActivity(), "Supermarket already selected");
                             }
+                        }
+                    }
+                });
+
+                cancel.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        ListNameFragment fragment = new ListNameFragment();
+                        android.support.v4.app.FragmentTransaction fmTransaction = getFragmentManager().beginTransaction();
+                        fmTransaction.replace(R.id.MainFrameLayout, fragment);
+                        fmTransaction.commit();
+                    }
+                });
+
+                save.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        ArrayList<MasterSupermarketViewModel> results = SaveMasterSupermarket(supermarkets);
+                        listDetails.setStores(results);
+
+                        if (listDetails.getStores().size() >= 2){
+                            Bundle bundle = new Bundle();
+                            bundle.putSerializable(String.valueOf(R.string.bundleShopListViewModel), listDetails);
+
+                            ListAddPriceFragment fragment = new ListAddPriceFragment();
+                            fragment.setArguments(bundle);
+                            android.support.v4.app.FragmentTransaction fmTransaction = getFragmentManager().beginTransaction();
+                            fmTransaction.replace(R.id.MainFrameLayout, fragment);
+                            fmTransaction.commit();
+                        }else {
+                            common.DisplayToastFromFragmentLong(getActivity(), "At least two stores requied");
                         }
                     }
                 });
@@ -102,10 +131,50 @@ public class AddSuperMarkerFragment extends Fragment {
         return view;
     }
 
+    private ArrayList<MasterSupermarketViewModel> SaveMasterSupermarket(ArrayList<String> supermarkets) {
+
+       ArrayList<MasterSupermarketViewModel> result = new ArrayList<>();
+
+        for (String item: supermarkets) {
+            if (IsExist(masterSupermarkets, item)){
+                MasterSupermarketViewModel storeDetails = new MasterSupermarketViewModel();
+
+                DBHandler db = new DBHandler(getContext());
+                storeDetails.setStoreId(db.GetIdByStoreName(item));
+                storeDetails.setStoreName(item);
+
+                result.add(storeDetails);
+            }else {
+                MasterSupermarketViewModel storeDetails = new MasterSupermarketViewModel();
+
+                DBHandler db = new DBHandler(getContext());
+                storeDetails.setStoreId(db.PostMasterSupermarket(item));
+                storeDetails.setStoreName(item);
+
+                result.add(storeDetails);
+            }
+        }
+
+        return result;
+    }
+
+    private boolean IsExist(ArrayList<MasterSupermarketViewModel> masterSupermarkets, String item) {
+        boolean result = false;
+
+        for (MasterSupermarketViewModel store:masterSupermarkets) {
+            if (store.getStoreName().equals(item)){
+                return true;
+            }
+
+        }
+
+        return result;
+    }
+
     private void DisplayTutorial(FragmentActivity activity) {
 
         if (tutorialCounter == 0){
-            common.DisplayToastFromFragment(activity, "Long press item for option");
+            common.DisplayToastFromFragmentLong(activity, "Long press item for option");
             tutorialCounter = 1;
         }
     }
@@ -135,39 +204,34 @@ public class AddSuperMarkerFragment extends Fragment {
         super.onCreateContextMenu(menu, v, menuInfo);
         menu.setHeaderTitle("Select Option");
         menu.add(0, v.getId(), 0, "Delete");
-//        menu.add(0,v.getId(),0,"Message");
-//        menu.add(0,v.getId(),0,"Mail");
     }
 
     @Override
     public boolean onContextItemSelected(MenuItem item) {
 
-        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
-        int listPosition = info.position;
-
-
-       Object t = adapter.getItem(listPosition);
-       Object s = adapter.getItemId(listPosition);
-
-       adapter.remove((String) t);
-
-        GenerateListView();
-
-        Object z = supermarkets;
-
         if(item.getTitle()=="Delete"){
-            //Toast.makeText(getContext(),"Call:Selected",Toast.LENGTH_LONG).show();
-           // Toast.makeText(getContext(),String.valueOf(info),Toast.LENGTH_LONG).show();
-
-
+            int index = GetItemIndex(item);
+            DeleteItemByIndex(index);
+            GenerateListView();
         }
-//        else if (item.getTitle()=="Message"){
-//            Toast.makeText(getContext(),"Message:Selected",Toast.LENGTH_LONG).show();
-//        }
-//        else if(item.getTitle()=="Mail"){
-//            Toast.makeText(getContext(),"Mail:Selected",Toast.LENGTH_LONG).show();
-//        }
+
         return super.onContextItemSelected(item);
+    }
+
+    private void DeleteItemByIndex(int index) {
+        String result;
+        result = adapter.getItem(index);
+        //Object s = adapter.getItemId(listPosition);
+        adapter.remove(result);
+
+    }
+
+    private int GetItemIndex(MenuItem item) {
+        int result = 0;
+        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+        result = info.position;
+
+        return  result;
     }
 
     private boolean IsValid() {
@@ -195,6 +259,9 @@ public class AddSuperMarkerFragment extends Fragment {
         autoSupermarket = view.findViewById(R.id.autoSupermarket);
         addStore = view.findViewById(R.id.BtnAddStore);
         listViewStore = view.findViewById(R.id.listViewStore);
+
+        cancel = view.findViewById(R.id.addStorePreviousButton);
+        save = view.findViewById(R.id.addStoreSaveButton);
 
     }
 
