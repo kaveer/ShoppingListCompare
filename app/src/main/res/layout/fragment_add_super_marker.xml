@@ -40,14 +40,14 @@
 
     <Button
         android:id="@+id/BtnAddStore"
-        style="?android:attr/buttonBarButtonStyle"
+        android:background="@drawable/gradient_background_pinot_noir"
+        android:textColor="@color/colorAccent"
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:text="Add"
-        android:textColor="@color/colorAccent"
         app:layout_constraintBottom_toTopOf="@+id/listViewStore"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
@@ -58,7 +58,9 @@
         android:layout_height="242dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-        tools:layout_editor_absoluteX="4dp"/>
+        tools:layout_editor_absoluteX="4dp"
+        android:divider="#ffffff"
+        android:dividerHeight="1dp" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -92,8 +94,9 @@
 
             <Button
                 android:id="@+id/addStorePreviousButton"
-                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dip"
+                android:background="@drawable/gradient_background_pinot_noir"
+                android:textColor="@color/colorAccent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:layout_weight="1"
@@ -102,8 +105,9 @@
 
             <Button
                 android:id="@+id/addStoreSaveButton"
-                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dip"
+                android:background="@drawable/gradient_background_pinot_noir"
+                android:textColor="@color/colorAccent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
                 android:layout_weight="1"

@@ -5,9 +5,17 @@
              tools:context="com.kavsoftware.kaveer.shoppinglistcompare.Fragment.ListDetailsFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment"/>
+    <ExpandableListView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/expandableListView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:divider="#ffffff"
+        android:childDivider="#ffffff"
+        android:dividerHeight="1dp"
+        android:textColor="#ffffff"
+        android:layout_marginTop="20dp"/>
 
 </FrameLayout>

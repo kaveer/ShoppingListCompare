@@ -12,10 +12,21 @@ public class ListViewModel implements Serializable {
     int ListId;
     String ListName;
     String Date;
-    String Guid;
+    String Uuid;
+
     ArrayList<MasterSupermarketViewModel> stores;
-    ArrayList<MasterGroceryViewModel> groceryList;
+    ArrayList<MasterGroceryViewModel> grocery;
+    ArrayList<GroceryDetailsViewModel> groceryDetail;
     boolean IsViewOnly;
+
+
+    public ArrayList<GroceryDetailsViewModel> getGroceryDetail() {
+        return groceryDetail;
+    }
+
+    public void setGroceryDetail(ArrayList<GroceryDetailsViewModel> groceryDetail) {
+        this.groceryDetail = groceryDetail;
+    }
 
     public boolean isViewOnly() {
         return IsViewOnly;
@@ -25,20 +36,20 @@ public class ListViewModel implements Serializable {
         IsViewOnly = viewOnly;
     }
 
-    public ArrayList<MasterGroceryViewModel> getGroceryList() {
-        return groceryList;
+    public ArrayList<MasterGroceryViewModel> getGrocery() {
+        return grocery;
     }
 
-    public void setGroceryList(ArrayList<MasterGroceryViewModel> groceryList) {
-        this.groceryList = groceryList;
+    public void setGrocery(ArrayList<MasterGroceryViewModel> grocery) {
+        this.grocery = grocery;
     }
 
-    public String getGuid() {
-        return Guid;
+    public String getUuid() {
+        return Uuid;
     }
 
-    public void setGuid(String guid) {
-        Guid = guid;
+    public void setUuid(String uuid) {
+        Uuid = uuid;
     }
 
     public ArrayList<MasterSupermarketViewModel> getStores() {

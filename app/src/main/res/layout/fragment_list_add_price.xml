@@ -85,7 +85,8 @@
 
             <Button
                 android:id="@+id/addPriceAdd"
-                style="?android:attr/buttonBarButtonStyle"
+                android:background="@drawable/gradient_background_pinot_noir"
+                android:textColor="@color/colorAccent"
                 android:layout_width="0dip"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
@@ -135,7 +136,8 @@
 
             <Button
                 android:id="@+id/addPricePreviousButton"
-                style="?android:attr/buttonBarButtonStyle"
+                android:background="@drawable/gradient_background_pinot_noir"
+                android:textColor="@color/colorAccent"
                 android:layout_width="0dip"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
@@ -145,7 +147,8 @@
 
             <Button
                 android:id="@+id/addPriceSaveButton"
-                style="?android:attr/buttonBarButtonStyle"
+                android:background="@drawable/gradient_background_pinot_noir"
+                android:textColor="@color/colorAccent"
                 android:layout_width="0dip"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"

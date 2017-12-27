@@ -4,10 +4,21 @@ package com.kavsoftware.kaveer.shoppinglistcompare.Model;
  * Created by kaveer on 12/17/2017.
  */
 
-public class GroceryDetails {
+public class GroceryDetailsViewModel {
     private int GroceryDetailsId;
     private int GroceryId;
     private int StoreId;
+    int ListId;
+
+    public int getListId() {
+        return ListId;
+    }
+
+    public void setListId(int listId) {
+        ListId = listId;
+    }
+
+    private float Price;
 
     public int getGroceryDetailsId() {
         return GroceryDetailsId;
@@ -41,5 +52,5 @@ public class GroceryDetails {
         Price = price;
     }
 
-    private float Price;
+
 }

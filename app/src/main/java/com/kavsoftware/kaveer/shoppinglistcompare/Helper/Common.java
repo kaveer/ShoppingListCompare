@@ -9,6 +9,7 @@ import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.widget.Toast;
 
+import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
@@ -34,7 +35,6 @@ public class Common {
         Toast messageBox = Toast.makeText(activity , message , Toast.LENGTH_LONG);
         messageBox.show();
     }
-
 
     public void DisplayToastFromFragmentShort(FragmentActivity activity, String message){
         Toast messageBox = Toast.makeText(activity , message , Toast.LENGTH_SHORT);
@@ -70,4 +70,22 @@ public class Common {
         return result;
     }
 
+    public void SaveFileToInternalStorage(FragmentActivity activity, String filename, String body, boolean isAppend) {
+
+        try {
+            body = "\n" + body;
+            FileOutputStream outputStream;
+
+            if (isAppend){
+                outputStream = activity.openFileOutput(filename, Context.MODE_APPEND);
+            }else {
+                outputStream = activity.openFileOutput(filename, Context.MODE_PRIVATE);
+            }
+
+            outputStream.write(body.getBytes());
+            outputStream.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

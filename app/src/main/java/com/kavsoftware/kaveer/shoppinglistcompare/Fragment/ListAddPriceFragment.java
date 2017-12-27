@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import com.kavsoftware.kaveer.shoppinglistcompare.DB.DbHandler.DBHandler;
 import com.kavsoftware.kaveer.shoppinglistcompare.Helper.Common;
+import com.kavsoftware.kaveer.shoppinglistcompare.Model.GroceryDetailsViewModel;
 import com.kavsoftware.kaveer.shoppinglistcompare.Model.ListViewModel;
 import com.kavsoftware.kaveer.shoppinglistcompare.Model.MasterGroceryViewModel;
 import com.kavsoftware.kaveer.shoppinglistcompare.Model.MasterSupermarketViewModel;
@@ -39,7 +40,7 @@ public class ListAddPriceFragment extends Fragment {
 
     ArrayList<String> storesAdapter = new ArrayList<>();
     ArrayList<MasterGroceryViewModel> groceries = new ArrayList<>();
-    ArrayList<MasterGroceryViewModel> preAddGroceryList = new ArrayList<>();
+    ArrayList<GroceryDetailsViewModel> preAddGroceryDetails = new ArrayList<>();
     boolean action;
 
     public ListAddPriceFragment() {
@@ -82,15 +83,15 @@ public class ListAddPriceFragment extends Fragment {
                         if (IsExistInMasterTable(addGroceryAutoComplete.getText().toString(), groceries))
                         {
                             action = true;
-                            MasterGroceryViewModel grocery = new MasterGroceryViewModel();
+                            GroceryDetailsViewModel grocery = new GroceryDetailsViewModel();
 
                             int groceryId = GetIdByGroceryName(addGroceryAutoComplete.getText().toString(), groceries, action);
                             int storeId = GetIdByStoreName(listDetails.getStores(), selectStore.getSelectedItem().toString());
 
-                            SetGrocery(grocery ,groceryId, storeId, Float.valueOf(addPrice.getText().toString()), addGroceryAutoComplete.getText().toString());
+                            SetGrocery(grocery ,groceryId, storeId, Float.valueOf(addPrice.getText().toString()));
 
-                            if (!IsExistInPreAddGroceryList(preAddGroceryList, grocery)){
-                                preAddGroceryList.add(grocery);
+                            if (!IsExistInPreAddGroceryList(preAddGroceryDetails, grocery)){
+                                preAddGroceryDetails.add(grocery);
                                 common.DisplayToastFromFragmentShort(getActivity(), "Item added");
                             }
                             else {
@@ -100,15 +101,15 @@ public class ListAddPriceFragment extends Fragment {
                         }
                         else {
                             action = false;
-                            MasterGroceryViewModel grocery = new MasterGroceryViewModel();
+                            GroceryDetailsViewModel grocery = new GroceryDetailsViewModel();
 
                             int groceryId = GetIdByGroceryName(addGroceryAutoComplete.getText().toString(), groceries, action);
                             int storeId = GetIdByStoreName(listDetails.getStores(), selectStore.getSelectedItem().toString());
 
-                            SetGrocery(grocery ,groceryId, storeId, Float.valueOf(addPrice.getText().toString()), addGroceryAutoComplete.getText().toString());
+                            SetGrocery(grocery ,groceryId, storeId, Float.valueOf(addPrice.getText().toString()));
 
-                            if (!IsExistInPreAddGroceryList(preAddGroceryList, grocery)){
-                                preAddGroceryList.add(grocery);
+                            if (!IsExistInPreAddGroceryList(preAddGroceryDetails, grocery)){
+                                preAddGroceryDetails.add(grocery);
                                 common.DisplayToastFromFragmentShort(getActivity(), "Item added");
                             }
                             else {
@@ -126,10 +127,11 @@ public class ListAddPriceFragment extends Fragment {
             save.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (listDetails.getGroceryList().size() != 0){
+                    listDetails.setGroceryDetail(preAddGroceryDetails);
+                    listDetails.setViewOnly(false);
+
+                    if (!listDetails.getGroceryDetail().isEmpty()){
                         Bundle bundle = new Bundle();
-                        listDetails.setGroceryList(preAddGroceryList);
-                        listDetails.setViewOnly(false);
                         bundle.putSerializable(String.valueOf(R.string.bundleListDetails), listDetails);
 
                         ListDetailsFragment fragment = new ListDetailsFragment();
@@ -163,19 +165,17 @@ public class ListAddPriceFragment extends Fragment {
         return view;
     }
 
-    private void SetGrocery(MasterGroceryViewModel grocery, int groceryId, int storeId, Float price, String groceryName) {
+    private void SetGrocery(GroceryDetailsViewModel grocery, int groceryId, int storeId, Float price) {
         grocery.setGroceryId(groceryId);
         grocery.setStoreId(storeId);
         grocery.setPrice(price);
-        grocery.setGroceryName(groceryName);
-
     }
 
-    private boolean IsExistInPreAddGroceryList(ArrayList<MasterGroceryViewModel> preAddGroceryList, MasterGroceryViewModel grocery) {
+    private boolean IsExistInPreAddGroceryList(ArrayList<GroceryDetailsViewModel> preAddGroceryList, GroceryDetailsViewModel grocery) {
         boolean result = false;
 
-        for (MasterGroceryViewModel item: preAddGroceryList) {
-            if (item.getGroceryName().equals(grocery.getGroceryName())){
+        for (GroceryDetailsViewModel item: preAddGroceryList) {
+            if (item.getGroceryId() == grocery.getGroceryId()){
                 if(item.getStoreId() == grocery.getStoreId())
                     return true;
             }

@@ -165,7 +165,6 @@ public class AddSuperMarkerFragment extends Fragment {
             if (store.getStoreName().equals(item)){
                 return true;
             }
-
         }
 
         return result;
