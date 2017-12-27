@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.kavsoftware.kaveer.shoppinglistcompare.Fragment.ListNameAddFragment;
 import com.kavsoftware.kaveer.shoppinglistcompare.Fragment.ListNameFragment;
 import com.kavsoftware.kaveer.shoppinglistcompare.R;
 
@@ -96,19 +97,19 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-//        if (id == R.id.nav_camera) {
-//            // Handle the camera action
-//        } else if (id == R.id.nav_gallery) {
-//
-//        } else if (id == R.id.nav_slideshow) {
-//
-//        } else if (id == R.id.nav_manage) {
-//
-//        } else if (id == R.id.nav_share) {
-//
-//        } else if (id == R.id.nav_send) {
-//
-//        }
+        if (id == R.id.nav_add_list) {
+            ListNameAddFragment fragment = new ListNameAddFragment();
+            android.support.v4.app.FragmentTransaction fmTransaction = getSupportFragmentManager().beginTransaction();
+            fmTransaction.replace(R.id.MainFrameLayout, fragment);
+            fmTransaction.commit();
+        } else if (id == R.id.nav_view) {
+            ListNameFragment fragment = new ListNameFragment();
+            android.support.v4.app.FragmentTransaction fmTransaction = getSupportFragmentManager().beginTransaction();
+            fmTransaction.replace(R.id.MainFrameLayout, fragment);
+            fmTransaction.commit();
+        }
+
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

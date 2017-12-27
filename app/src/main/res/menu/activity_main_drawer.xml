@@ -5,21 +5,13 @@
 
     <group android:checkableBehavior="all">
         <item
-            android:id="@+id/nav_camersa"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Import"/>
+            android:id="@+id/nav_add_list"
+            android:icon="@drawable/ic_add"
+            android:title="Add List"/>
         <item
-            android:id="@+id/nav_gallexry"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery"/>
-        <item
-            android:id="@+id/nav_slidsxeshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow"/>
-        <item
-            android:id="@+id/nav_maxsnage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools"/>
+            android:id="@+id/nav_view_history"
+            android:icon="@drawable/ic_view"
+            android:title="View History"/>
     </group>
 
 
@@ -28,19 +20,19 @@
         android:checkableBehavior="single">
 
         <item
-            android:id="@+id/drawer_item_sedfettings"
-            android:icon="@drawable/ic_menu_camera"
+            android:id="@+id/nav_setting"
+            android:icon="@drawable/ic_settings"
             android:title="Setting" >
         </item>
         <item
-            android:id="@+id/drawer_item_sedfttings"
-            android:icon="@drawable/ic_menu_camera"
+            android:id="@+id/nav_help"
+            android:icon="@drawable/ic_help"
             android:title="Help" >
         </item>
         <item
-            android:id="@+id/drawer_item_dfdsettings"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Information" >
+            android:id="@+id/nav_about_us"
+            android:icon="@drawable/ic_about_us"
+            android:title="About Us" >
         </item>
     </group>
 
