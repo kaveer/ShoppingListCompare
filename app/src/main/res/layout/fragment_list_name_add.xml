@@ -77,7 +77,7 @@
 
             <Button
                 android:id="@+id/addTitleCancelButton"
-                android:background="@drawable/gradient_background_pinot_noir"
+                android:background="@drawable/gradient_background_royal_blue"
                 android:textColor="@color/colorAccent"
                 android:layout_width="0dip"
                 android:layout_height="wrap_content"
@@ -89,7 +89,7 @@
             <Button
                 android:id="@+id/addTitleOkButton"
                 android:layout_width="0dip"
-                android:background="@drawable/gradient_background_pinot_noir"
+                android:background="@drawable/gradient_background_royal_blue"
                 android:textColor="@color/colorAccent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"

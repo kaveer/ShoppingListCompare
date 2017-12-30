@@ -289,7 +289,9 @@ public class DBHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         String query;
 
-        query  = "SELECT * FROM " + Table.List.tableName;
+        query  = "SELECT * FROM "
+                + Table.List.tableName
+                + " ORDER BY " + Table.List.Date + " DESC ";
 
         Cursor cursor = db.rawQuery(query , null);
         if(cursor.getCount() > 0){

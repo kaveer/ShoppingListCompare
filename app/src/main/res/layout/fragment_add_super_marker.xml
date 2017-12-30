@@ -40,7 +40,7 @@
 
     <Button
         android:id="@+id/BtnAddStore"
-        android:background="@drawable/gradient_background_pinot_noir"
+        android:background="@drawable/gradient_background_royal_blue"
         android:textColor="@color/colorAccent"
         android:layout_width="0dp"
         android:layout_height="48dp"
@@ -95,7 +95,7 @@
             <Button
                 android:id="@+id/addStorePreviousButton"
                 android:layout_width="0dip"
-                android:background="@drawable/gradient_background_pinot_noir"
+                android:background="@drawable/gradient_background_royal_blue"
                 android:textColor="@color/colorAccent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
@@ -106,7 +106,7 @@
             <Button
                 android:id="@+id/addStoreSaveButton"
                 android:layout_width="0dip"
-                android:background="@drawable/gradient_background_pinot_noir"
+                android:background="@drawable/gradient_background_royal_blue"
                 android:textColor="@color/colorAccent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
