@@ -114,7 +114,7 @@ public class MainActivity extends AppCompatActivity
             android.support.v4.app.FragmentTransaction fmTransaction = getSupportFragmentManager().beginTransaction();
             fmTransaction.replace(R.id.MainFrameLayout, fragment);
             fmTransaction.commit();
-        } else if (id == R.id.nav_view) {
+        } else if (id == R.id.nav_view_history) {
             ListNameFragment fragment = new ListNameFragment();
             android.support.v4.app.FragmentTransaction fmTransaction = getSupportFragmentManager().beginTransaction();
             fmTransaction.replace(R.id.MainFrameLayout, fragment);
