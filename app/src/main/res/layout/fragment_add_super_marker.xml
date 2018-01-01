@@ -1,128 +1,138 @@
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                             xmlns:app="http://schemas.android.com/apk/res-auto"
-                                             xmlns:tools="http://schemas.android.com/tools"
-                                             android:layout_width="match_parent"
-                                             android:layout_height="match_parent"
-                                             tools:context="com.kavsoftware.kaveer.shoppinglistcompare.Fragment.AddSuperMarkerFragment"
-                                             tools:layout_editor_absoluteY="81dp">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent"
+            tools:context="com.kavsoftware.kaveer.shoppinglistcompare.Fragment.AddSuperMarkerFragment"
+            tools:layout_editor_absoluteY="81dp">
 
     <!-- TODO: Update blank fragment layout -->
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="0dp"
-        android:layout_height="21dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Enter Supermarket here: "
-        android:textAlignment="viewStart"
-        android:textColor="@color/colorAccent"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/autoSupermarket"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="457dp">
 
-    <AutoCompleteTextView
-        android:id="@+id/autoSupermarket"
-        android:layout_width="0dp"
-        android:layout_height="45dp"
-        android:layout_marginBottom="8dp"
-        android:singleLine="true"
-        android:textColor="@color/colorAccent"
-        android:tooltipText="Send an email"
-        app:layout_constraintBottom_toTopOf="@+id/BtnAddStore"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
-
-    <Button
-        android:id="@+id/BtnAddStore"
-        android:background="@drawable/gradient_background_royal_blue"
-        android:textColor="@color/colorAccent"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:text="Add"
-        app:layout_constraintBottom_toTopOf="@+id/listViewStore"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
-
-    <ListView
-        android:id="@+id/listViewStore"
-        android:layout_width="0dp"
-        android:layout_height="242dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-        tools:layout_editor_absoluteX="4dp"
-        android:divider="#ffffff"
-        android:dividerHeight="1dp" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="0dp"
-        android:layout_height="74dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:divider="?android:attr/dividerHorizontal"
-        android:orientation="vertical"
-        android:paddingTop="16dip"
-        android:showDividers="beginning"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <LinearLayout
-            style="?android:attr/buttonBarStyle"
+        <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:measureWithLargestChild="true"
-            android:orientation="horizontal">
+            android:layout_height="match_parent">
 
-            <LinearLayout
-                android:id="@+id/leftSpacer"
-                android:layout_width="0dip"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.25"
-                android:orientation="horizontal"
-                android:visibility="gone"/>
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="21dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Enter Supermarket here: "
+                android:textAlignment="viewStart"
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/autoSupermarket"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <AutoCompleteTextView
+                android:id="@+id/autoSupermarket"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/linearLayout"
+                android:singleLine="true"
+                android:textColor="@color/colorAccent"
+                android:tooltipText="Send an email"
+                app:layout_constraintBottom_toTopOf="@+id/BtnAddStore"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="89dp">
+
+            <Button
+                android:id="@+id/BtnAddStore"
+                android:layout_width="366dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/gradient_background_royal_blue"
+                android:text="Add"
+                android:textColor="@color/colorAccent"
+                app:layout_constraintBottom_toTopOf="@+id/listViewStore"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="286dp">
+
+            <ListView
+                android:id="@+id/listViewStore"
+                android:layout_width="371dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="8dp"
+                android:divider="#ffffff"
+                android:dividerHeight="1dp"
+                app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+                tools:layout_editor_absoluteX="4dp"/>
+        </TableRow>
+    </TableLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <Button
                 android:id="@+id/addStorePreviousButton"
                 android:layout_width="0dip"
-                android:background="@drawable/gradient_background_royal_blue"
-                android:textColor="@color/colorAccent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:layout_weight="1"
+                android:background="@drawable/gradient_background_royal_blue"
                 android:maxLines="2"
-                android:text="@string/cancel"/>
+                android:text="@string/cancel"
+                android:textColor="@color/colorAccent"/>
 
             <Button
                 android:id="@+id/addStoreSaveButton"
                 android:layout_width="0dip"
-                android:background="@drawable/gradient_background_royal_blue"
-                android:textColor="@color/colorAccent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
                 android:layout_weight="1"
+                android:background="@drawable/gradient_background_royal_blue"
                 android:filterTouchesWhenObscured="true"
                 android:maxLines="2"
-                android:text="@string/save"/>
+                android:text="@string/save"
+                android:textColor="@color/colorAccent"/>
+        </TableRow>
 
-            <LinearLayout
-                android:id="@+id/rightSpacer"
-                android:layout_width="0dip"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.25"
-                android:orientation="horizontal"
-                android:visibility="gone"/>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
 
-        </LinearLayout>
-    </LinearLayout>
-</android.support.constraint.ConstraintLayout>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </TableLayout>
+
+</LinearLayout>

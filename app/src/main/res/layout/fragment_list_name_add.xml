@@ -1,112 +1,95 @@
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:app="http://schemas.android.com/apk/res-auto"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             tools:context="com.kavsoftware.kaveer.shoppinglistcompare.Fragment.ListNameAddFragment">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              tools:context="com.kavsoftware.kaveer.shoppinglistcompare.Fragment.ListNameAddFragment"
+              tools:layout_editor_absoluteY="81dp">
 
     <!-- TODO: Update blank fragment layout -->
 
 
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="0dp"
-        android:layout_height="61dp"
-        android:layout_marginTop="24dp"
-        android:textColorHint="#ffff"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="458dp">
 
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/textInputTitle"
+        <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/title"
-            android:singleLine="true"
-            android:textColor="@color/colorAccent"/>
-    </android.support.design.widget.TextInputLayout>
+            android:layout_height="match_parent">
 
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="108dp"
-        android:textColorHint="#ffff"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="384dp"
+                android:layout_height="61dp"
+                android:textColorHint="#ffff"
+                tools:layout_editor_absoluteY="24dp">
 
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/textInputDate"
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/textInputTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/title"
+                    android:singleLine="true"
+                    android:textColor="@color/colorAccent"/>
+            </android.support.design.widget.TextInputLayout>
+        </TableRow>
+
+        <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:editable="false"
-            android:hint="@string/date"
-            android:singleLine="true"
-            android:textColor="@color/colorAccent"/>
-    </android.support.design.widget.TextInputLayout>
+            android:layout_height="match_parent">
 
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="74dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:divider="?android:attr/dividerHorizontal"
-        android:orientation="vertical"
-        android:paddingTop="16dip"
-        android:showDividers="beginning"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <LinearLayout
-            style="?android:attr/buttonBarStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:measureWithLargestChild="true"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:id="@+id/leftSpacer"
-                android:layout_width="0dip"
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="384dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.25"
-                android:orientation="horizontal"
-                android:visibility="gone"/>
+                android:textColorHint="#ffff"
+                tools:layout_editor_absoluteY="108dp">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/textInputDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:editable="false"
+                    android:hint="@string/date"
+                    android:singleLine="true"
+                    android:textColor="@color/colorAccent"/>
+            </android.support.design.widget.TextInputLayout>
+        </TableRow>
+
+    </TableLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <Button
                 android:id="@+id/addTitleCancelButton"
-                android:background="@drawable/gradient_background_royal_blue"
-                android:textColor="@color/colorAccent"
                 android:layout_width="0dip"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:layout_weight="1"
+                android:background="@drawable/gradient_background_royal_blue"
                 android:maxLines="2"
-                android:text="@string/cancel"/>
+                android:text="@string/cancel"
+                android:textColor="@color/colorAccent"/>
 
             <Button
                 android:id="@+id/addTitleOkButton"
-                android:layout_width="0dip"
-                android:background="@drawable/gradient_background_royal_blue"
-                android:textColor="@color/colorAccent"
+                android:layout_width="16dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
                 android:layout_weight="1"
+                android:background="@drawable/gradient_background_royal_blue"
                 android:filterTouchesWhenObscured="true"
                 android:maxLines="2"
-                android:text="@string/next"/>
+                android:text="@string/next"
+                android:textColor="@color/colorAccent"/>
 
-            <LinearLayout
-                android:id="@+id/rightSpacer"
-                android:layout_width="0dip"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.25"
-                android:orientation="horizontal"
-                android:visibility="gone"/>
+        </TableRow>
 
-        </LinearLayout>
-    </LinearLayout>
+    </TableLayout>
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

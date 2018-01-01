@@ -1,102 +1,110 @@
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                             xmlns:app="http://schemas.android.com/apk/res-auto"
-                                             xmlns:tools="http://schemas.android.com/tools"
-                                             android:layout_width="match_parent"
-                                             android:layout_height="match_parent"
-                                             tools:context="com.kavsoftware.kaveer.shoppinglistcompare.Fragment.ListAddPriceFragment"
-                                             tools:layout_editor_absoluteY="81dp">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              tools:context="com.kavsoftware.kaveer.shoppinglistcompare.Fragment.ListAddPriceFragment"
+              tools:layout_editor_absoluteY="81dp">
 
 
-    <AutoCompleteTextView
-        android:id="@+id/addGrocery"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:singleLine="true"
-        android:textColor="@color/colorAccent"
-        app:layout_constraintBottom_toTopOf="@+id/textInputLayout"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="452dp">
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/textInputLayout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:textColorHint="@color/colorAccent"
-        app:layout_constraintBottom_toTopOf="@+id/spinnerStore"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent">
-
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/addPrice"
+        <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/price"
-            android:inputType="numberDecimal"
-            android:singleLine="true"
-            android:textColor="@color/colorAccent"/>
-    </android.support.design.widget.TextInputLayout>
+            android:layout_height="match_parent">
 
-    <Spinner
-        android:id="@+id/spinnerStore"
-        android:layout_width="387dp"
-        android:layout_height="47dp"
-        android:textAlignment="center"
-        android:background="@drawable/gradient_background_royal_blue"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/addPriceAdd"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Enter Item"
+                android:textColor="@color/colorAccent"/>
+        </TableRow>
 
-    <Button
-        android:id="@+id/addPriceAdd"
-        android:layout_width="384dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:layout_marginBottom="136dp"
-        android:layout_weight="1"
-        android:background="@drawable/gradient_background_royal_blue"
-        android:filterTouchesWhenObscured="true"
-        android:maxLines="2"
-        android:text="@string/add"
-        android:textAlignment="center"
-        android:textColor="@color/colorAccent"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="0dp"
-        android:layout_height="74dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:divider="?android:attr/dividerHorizontal"
-        android:orientation="vertical"
-        android:paddingTop="16dip"
-        android:showDividers="beginning"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <LinearLayout
-            style="?android:attr/buttonBarStyle"
+        <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:measureWithLargestChild="true"
-            android:orientation="horizontal">
+            android:layout_height="match_parent">
 
-            <LinearLayout
-                android:id="@+id/leftSpacer"
-                android:layout_width="0dip"
+            <AutoCompleteTextView
+                android:id="@+id/addGrocery"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.25"
-                android:orientation="horizontal"
-                android:visibility="gone"/>
+                android:layout_marginBottom="8dp"
+                android:singleLine="true"
+                android:textColor="@color/colorAccent"
+                app:layout_constraintBottom_toTopOf="@+id/textInputLayout"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/textInputLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:textColorHint="@color/colorAccent"
+                app:layout_constraintBottom_toTopOf="@+id/spinnerStore"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/addPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/price"
+                    android:inputType="numberDecimal"
+                    android:singleLine="true"
+                    android:textColor="@color/colorAccent"/>
+            </android.support.design.widget.TextInputLayout>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Spinner
+                android:id="@+id/spinnerStore"
+                android:layout_width="387dp"
+                android:layout_height="47dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/gradient_background_royal_blue"
+                android:textAlignment="center"
+                app:layout_constraintBottom_toTopOf="@+id/addPriceAdd"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/addPriceAdd"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                android:background="@drawable/gradient_background_royal_blue"
+                android:filterTouchesWhenObscured="true"
+                android:text="@string/add"
+                android:textColor="@color/colorAccent"/>
+        </TableRow>
+    </TableLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <Button
                 android:id="@+id/addPricePreviousButton"
@@ -120,31 +128,8 @@
                 android:maxLines="2"
                 android:text="@string/save"
                 android:textColor="@color/colorAccent"/>
+        </TableRow>
 
-            <LinearLayout
-                android:id="@+id/rightSpacer"
-                android:layout_width="0dip"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.25"
-                android:orientation="horizontal"
-                android:visibility="gone"/>
+    </TableLayout>
 
-        </LinearLayout>
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="0dp"
-        android:layout_height="24dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="272dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:text="Enter Item"
-        android:textColor="@color/colorAccent"
-        app:layout_constraintBottom_toTopOf="@+id/addGrocery"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>
